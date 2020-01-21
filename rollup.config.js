@@ -5,7 +5,6 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import alias from "@rollup/plugin-alias";
-//import brotli from "rollup-plugin-brotli";
 import cleaner from "rollup-plugin-cleaner";
 import gzipPlugin from "rollup-plugin-gzip";
 
@@ -68,7 +67,7 @@ export default {
     production &&
       gzipPlugin({
         additionalFiles: ["./public/global.css", "./public/build/bundle.css"]
-      }) //brotli()
+      })
   ],
   watch: {
     clearScreen: false

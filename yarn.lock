@@ -5038,11 +5038,6 @@ rimraf@^2.5.4, rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-brotli@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-brotli/-/rollup-plugin-brotli-2.0.2.tgz#1a5fa0369d3e3f99f066dc16b4b4d201440caf05"
-  integrity sha512-Tv96vZsE/789NHmUxAoXEvnStZD3cK8hjCNVFlVHu6Atcdt6o50ZM8lxnKCxhEX2rRjih4bXy1OySsiAqzIVmA==
-
 rollup-plugin-bundle-size@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/rollup-plugin-bundle-size/-/rollup-plugin-bundle-size-1.0.3.tgz#d245cd988486b4040279f9fd33f357f61673e90f"

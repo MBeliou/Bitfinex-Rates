@@ -5,7 +5,7 @@
 
 <style>
   :global(a.active) {
-    @apply text-white  font-semibold;
+    @apply text-white font-semibold;
   }
 
   nav {

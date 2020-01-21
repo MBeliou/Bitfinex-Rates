@@ -4,6 +4,10 @@ import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
+import alias from "@rollup/plugin-alias";
+//import brotli from "rollup-plugin-brotli";
+import cleaner from "rollup-plugin-cleaner";
+import gzipPlugin from "rollup-plugin-gzip";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -11,11 +15,21 @@ export default {
   input: "src/main.js",
   output: {
     sourcemap: true,
-    format: "iife",
+    format: "esm",
     name: "app",
-    file: "public/build/bundle.js"
+    //file: "public/build/bundle.js",
+    dir: "public/build"
   },
   plugins: [
+    cleaner({
+      targets: ["./public/build"]
+    }),
+    alias({
+      entries: [
+        { find: "utils", replacement: "./src/utils" },
+        { find: "pages", replacement: "./src/pages" }
+      ]
+    }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
@@ -49,7 +63,12 @@ export default {
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
-    production && terser()
+    production && terser({}),
+
+    production &&
+      gzipPlugin({
+        additionalFiles: ["./public/global.css", "./public/build/bundle.css"]
+      }) //brotli()
   ],
   watch: {
     clearScreen: false

@@ -7,6 +7,8 @@ import sveltePreprocess from "svelte-preprocess";
 import alias from "@rollup/plugin-alias";
 import cleaner from "rollup-plugin-cleaner";
 import gzipPlugin from "rollup-plugin-gzip";
+import modulepreload from "rollup-plugin-modulepreload";
+import copy from "rollup-plugin-copy";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,11 +19,14 @@ export default {
     format: "esm",
     name: "app",
     //file: "public/build/bundle.js",
-    dir: "public/build"
+    dir: "dist/build"
   },
   plugins: [
     cleaner({
-      targets: ["./public/build"]
+      targets: ["./dist"]
+    }),
+    copy({
+      targets: [{ src: "public/*", dest: "dist" }]
     }),
     alias({
       entries: [
@@ -36,7 +41,7 @@ export default {
       // a separate file — better for performance
       preprocess: sveltePreprocess({ postcss: true }),
       css: css => {
-        css.write("public/build/bundle.css");
+        css.write("dist/bundle.css");
       }
     }),
 
@@ -66,7 +71,15 @@ export default {
 
     production &&
       gzipPlugin({
-        additionalFiles: ["./public/global.css", "./public/build/bundle.css"]
+        additionalFiles: ["./dist/global.css", "./dist/bundle.css"]
+      }),
+
+    production &&
+      modulepreload({
+        prefix: "build",
+        index: "dist/index.html",
+        shouldPreload: ({ fileName }) =>
+          fileName.includes("index") && !fileName.includes("gz")
       })
   ],
   watch: {

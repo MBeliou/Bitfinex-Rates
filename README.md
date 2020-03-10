@@ -41,7 +41,9 @@ To create an optimised version of the app:
 npm run build
 ```
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+You can run the newly built app with `npm run start`. This uses [sirv@next](https://github.com/lukeed/sirv/tree/next/packages/sirv-cli), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+
+Gzipping is enabled by default for production builds. 
 
 ## SPA
 

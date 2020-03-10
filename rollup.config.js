@@ -9,6 +9,7 @@ import cleaner from "rollup-plugin-cleaner";
 import gzipPlugin from "rollup-plugin-gzip";
 import modulepreload from "rollup-plugin-modulepreload";
 import copy from "rollup-plugin-copy";
+import svelteSVG from "rollup-plugin-svelte-svg";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -31,9 +32,11 @@ export default {
     alias({
       entries: [
         { find: "utils", replacement: "./src/utils" },
-        { find: "pages", replacement: "./src/pages" }
+        { find: "pages", replacement: "./src/pages" },
+        { find: "components", replacement: "./src/components" }
       ]
     }),
+    svelteSVG(),
     svelte({
       // enable run-time checks when not in production
       dev: !production,

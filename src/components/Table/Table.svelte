@@ -26,7 +26,11 @@
   }
 </style>
 
-<table class="mx-auto w-full max-w-lg sm:max-w-2xl md:max-w-4xl shadow-lg rounded-lg">
+<div class="mx-auto max-w-lg sm:max-w-xl md:max-w-4xl text-center md:text-left">
+  <h1 class="text-gray-200 text-xl font-semibold tracking-wide">Current lending rates</h1>
+</div>
+<table
+  class="mt-3 mx-auto w-full max-w-lg sm:max-w-2xl md:max-w-4xl shadow-lg rounded-lg">
   <thead class="bg-gray-200 py-2 rounded-t-lg px-4">
     <tr class="">
       <th class="" />

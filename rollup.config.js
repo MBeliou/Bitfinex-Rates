@@ -44,7 +44,7 @@ export default {
       // a separate file — better for performance
       preprocess: sveltePreprocess({ postcss: true }),
       css: css => {
-        css.write("dist/bundle.css");
+        css.write("dist/css/bundle.css");
       }
     }),
 
@@ -74,7 +74,7 @@ export default {
 
     production &&
       gzipPlugin({
-        additionalFiles: ["./dist/global.css", "./dist/bundle.css"]
+        additionalFiles: ["./dist/css/global.css", "./dist/css/bundle.css"]
       }),
 
     production &&

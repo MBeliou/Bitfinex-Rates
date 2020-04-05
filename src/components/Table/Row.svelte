@@ -19,6 +19,8 @@
     null,
     82128383.8489956 // FRR Available - 16
   ];*/
+  
+  import { _ } from "svelte-i18n";
   export let ticker;
 
   const symbol = 0;
@@ -80,7 +82,7 @@
   <td class=" flex-col justify-center text-right w-2/12 pr-4">
     <div class="text-gray-700 font-semibold">
       {rateToYearly(ticker[last])}%
-      <span class="font-normal text-gray-600">yearly</span>
+      <span class="font-normal text-gray-600">{$_("row.yearly")}</span>
     </div>
     <div class="text-sm text-gray-600 mt-1">/ {ticker[last]}</div>
   </td>
@@ -88,7 +90,7 @@
     class=" flex-col justify-center text-right w-2/12 pr-4 hidden sm:table-cell">
     <div class="text-gray-700 font-semibold">
       {rateToYearly(ticker[bidRate])}%
-      <span class="font-normal text-gray-600">yearly</span>
+      <span class="font-normal text-gray-600">{$_("row.yearly")}</span>
     </div>
     <div class="text-sm text-gray-600 mt-1">/ {ticker[bidRate]}</div>
   </td>
@@ -97,7 +99,7 @@
     class=" flex-col justify-center text-right w-2/12 pr-4 hidden sm:table-cell">
     <div class="text-gray-700 font-semibold">
       {rateToYearly(ticker[askRate])}%
-      <span class="font-normal text-gray-600">yearly</span>
+      <span class="font-normal text-gray-600">{$_("row.yearly")}</span>
     </div>
     <div class="text-sm text-gray-600 mt-1">/ {ticker[askRate]}</div>
   </td>
@@ -110,8 +112,8 @@
       <a href={`${baseURL}/f/${cleanSymbol}?refcode=${refCode}`}>
         <button
           class="bg-gray-300 text-gray-800 text-xs sm:text-sm font-semibold px-2
-          sm:px-4 py-2 rounded-lg">
-          To Market
+          sm:px-4 py-2 rounded-lg capitalize">
+          {$_("row.market")}
         </button>
       </a>
     </div>

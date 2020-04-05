@@ -4,6 +4,7 @@
   import Row from "components/Table/Row.svelte";
   import Loading from "components/Loading.svelte";
   import Lendfinex from "components/Lendfinex/Lendfinex.svelte";
+  import Language from "components/Language.svelte";
 
   let api = new BitfinexAPI();
 
@@ -24,6 +25,9 @@
   }
 </style>
 
+<div class="mt-4 max-w-xs mx-auto">
+  <Language />
+</div>
 <Lendfinex />
 
 <div class="h-8" />

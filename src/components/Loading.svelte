@@ -1,3 +1,7 @@
+<script>
+  import { _ } from "svelte-i18n";
+</script>
+
 <style>
   /** Global preloader styles **/
   .pl,
@@ -156,4 +160,4 @@
 <div>
   <div class="pl pl-flip text-gray-300 rounded-full" />
 </div>
-<p class="pl-name text-gray-300 text-lg">Querying Bitfinex...</p>
+<p class="pl-name text-gray-300 text-lg">{$_('query.querying')}</p>

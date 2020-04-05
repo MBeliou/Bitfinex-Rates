@@ -1,0 +1,28 @@
+{
+    "test": "hello test",
+    "navbar": {
+        "tag": "Votre Résumé du Marché de Prêts"
+    },
+    "lendfinex": {
+        "tag": "Avoir les taux dans la poche?",
+        "action": "Utilisez Lendfinex"
+    },
+    "table": {
+        "title": "Taux de prêts actuels",
+        "symbol": "symbole",
+        "last": "dernier",
+        "bid": "offre",
+        "ask": "demande",
+        "change": "change."
+    },
+    "row": {
+        "yearly" : "annuel",
+        "market": "marché"
+    },
+    "footer": {
+        "contact": "Me contacter"
+    },
+    "query": {
+        "querying" : "En attente de Bitfinex..."
+    }
+}

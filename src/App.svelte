@@ -4,6 +4,11 @@
   import routes from "./routes";
   import Navbar from "./components/Navbar.svelte";
   import Footer from "components/Footer.svelte";
+
+  //  Locale
+  import "./utils/i18n.js";
+
+  import { _, isLoading } from "svelte-i18n";
 </script>
 
 <style global>
@@ -19,8 +24,11 @@
 
 <Tailwindcss />
 
-<Navbar />
-<main>
-  <Router {routes} />
-</main>
-<Footer />
+{#if !$isLoading}
+  <Navbar />
+
+  <main class="px-2 lg:px-0">
+    <Router {routes} />
+  </main>
+  <Footer />
+{/if}

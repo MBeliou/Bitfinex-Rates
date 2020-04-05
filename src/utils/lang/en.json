@@ -1,0 +1,27 @@
+{
+    "navbar": {
+        "tag": "Your Lending Market Report"
+    },
+    "lendfinex": {
+        "tag": "Want your rates on the go?",
+        "action": "Get Lendfinex"
+    },
+    "table": {
+        "title": "Current lending rates",
+        "symbol": "symbol",
+        "last": "last",
+        "bid": "bid",
+        "ask": "ask",
+        "change": "change"
+    },
+    "row": {
+        "yearly": "yearly",
+        "market": "to market"
+    },
+    "footer": {
+        "contact": "Contact me"
+    },
+    "query": {
+        "querying" : "Querying Bitfinex..."
+    }
+}

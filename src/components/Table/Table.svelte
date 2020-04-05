@@ -1,5 +1,6 @@
 <script>
   import Row from "./Row.svelte";
+  import { _ } from "svelte-i18n";
 
   export let tickers;
 </script>
@@ -24,21 +25,32 @@
   th {
     @apply py-2 uppercase text-xs text-gray-600 font-bold tracking-widest;
   }
+
+  tbody > tr:last-child > td:first-child {
+    @apply rounded-bl-lg;
+  }
+
+  tbody > tr:last-child > td:last-child{
+    @apply rounded-br-lg;
+  }
 </style>
 
 <div class="mx-auto max-w-lg sm:max-w-xl md:max-w-4xl text-center md:text-left">
-  <h1 class="text-gray-200 text-xl font-semibold tracking-wide">Current lending rates</h1>
+  <h1 class="text-gray-200 text-xl font-semibold tracking-wide">
+    {$_('table.title')}
+  </h1>
 </div>
 <table
-  class="mt-3 mx-auto w-full max-w-lg sm:max-w-2xl md:max-w-4xl shadow-lg rounded-lg">
+  class="mt-3 mx-auto w-full max-w-lg sm:max-w-2xl md:max-w-4xl shadow-lg
+  rounded-lg">
   <thead class="bg-gray-200 py-2 rounded-t-lg px-4">
     <tr class="">
       <th class="" />
-      <th class="text-left py-4">Symbol</th>
-      <th class="text-right pr-4">Last</th>
-      <th class="text-right pr-4 hidden sm:table-cell">Bid</th>
-      <th class="text-right pr-4 hidden sm:table-cell">Ask</th>
-      <th class="text-center sm:text-right">Change</th>
+      <th class="text-left py-4">{$_('table.symbol')}</th>
+      <th class="text-right pr-4">{$_('table.last')}</th>
+      <th class="text-right pr-4 hidden sm:table-cell">{$_('table.bid')}</th>
+      <th class="text-right pr-4 hidden sm:table-cell">{$_('table.ask')}</th>
+      <th class="text-center sm:text-right">{$_('table.change')}</th>
       <th />
     </tr>
   </thead>

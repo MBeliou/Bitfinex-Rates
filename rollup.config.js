@@ -10,6 +10,8 @@ import gzipPlugin from "rollup-plugin-gzip";
 import modulepreload from "rollup-plugin-modulepreload";
 import copy from "rollup-plugin-copy";
 import svelteSVG from "rollup-plugin-svelte-svg";
+import json from '@rollup/plugin-json';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -19,8 +21,45 @@ export default {
     sourcemap: true,
     format: "esm",
     name: "app",
-    //file: "public/build/bundle.js",
     dir: "dist/build"
+  },
+  moduleContext: id => {
+    // In order to match native module behaviour, Rollup sets `this`
+    // as `undefined` at the top level of modules. Rollup also outputs
+    // a warning if a module tries to access `this` at the top level.
+    // The following modules use `this` at the top level and expect it
+    // to be the global `window` object, so we tell Rollup to set
+    // `this = window` for these modules.
+    const thisAsWindowForModules = [
+      "node_modules/intl-messageformat/lib/core.js",
+      "node_modules/intl-messageformat/lib/compiler.js",
+      "node_modules/intl-format-cache/lib/index.js",
+
+      "node_modules/intl-messageformat/lib/formatters.js",
+      "node_modules/intl-messageformat-parser/lib/normalize.js",
+      "node_modules/intl-messageformat-parser/lib/parser.js",
+      "node_modules/intl-messageformat-parser/lib/skeleton.js",
+
+      "node_modules\\intl-messageformat\\lib\\core.js",
+      "node_modules\\intl-messageformat\\lib\\compiler.js",
+      "node_modules\\intl-format-cache\\lib\\index.js",
+
+      "node_modules\\intl-messageformat\\lib\\formatters.js",
+      "node_modules\\intl-messageformat-parser\\lib\\normalize.js",
+      "node_modules\\intl-messageformat-parser\\lib\\parser.js",
+      "node_modules\\intl-messageformat-parser\\lib\\skeleton.js",
+    ];
+
+    // console.log(
+    //   id,
+    //   thisAsWindowForModules.some(id_ => id.includes(id_))
+    // );
+
+    //if (thisAsWindowForModules.some(id_ => id.trimRight().endsWith(id_))) {
+    //console.log("Found module for this");
+    if (thisAsWindowForModules.some(id_ => id.includes(id_))) {
+      return "window";
+    }
   },
   plugins: [
     cleaner({
@@ -37,6 +76,7 @@ export default {
       ]
     }),
     svelteSVG(),
+    json(),
     svelte({
       // enable run-time checks when not in production
       dev: !production,

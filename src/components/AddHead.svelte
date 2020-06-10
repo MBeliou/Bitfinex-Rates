@@ -4,6 +4,7 @@
 
 <svelte:head>
   <meta name="description" content={$_('navbar.tag')} />
+  <meta property="og:description" content={$_('navbar.tag')} />
 
   <!-- 
       <meta property="og:site_name" name="og:site_name" content="Noveltech">

@@ -4,6 +4,7 @@
   import routes from "./routes";
   import Navbar from "./components/Navbar.svelte";
   import Footer from "components/Footer.svelte";
+  import AddHead from "components/AddHead.svelte";
 
   //  Locale
   import "./utils/i18n.js";
@@ -25,6 +26,7 @@
 <Tailwindcss />
 
 {#if !$isLoading}
+  <AddHead />
   <Navbar />
 
   <main class="px-2 lg:px-0">

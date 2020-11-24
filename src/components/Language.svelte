@@ -7,7 +7,7 @@
   let currentLocale = get(locale).substr(0, 2);
   //$: currentLocale
 
-  console.log("current locale", currentLocale);
+  // console.log("current locale", currentLocale);
 
   function setNewLocale(val) {
     if (val !== currentLocale) {

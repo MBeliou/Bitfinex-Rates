@@ -123,7 +123,7 @@ export default {
         index: "dist/index.html",
         shouldPreload: ({ fileName }) =>
           fileName.includes("index") && !fileName.includes("gz")
-      })
+      }),
   ],
   watch: {
     clearScreen: false

@@ -30,7 +30,7 @@
     @apply rounded-bl-lg;
   }
 
-  tbody > tr:last-child > td:last-child{
+  tbody > tr:last-child > td:last-child {
     @apply rounded-br-lg;
   }
 </style>

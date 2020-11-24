@@ -1,10 +1,9 @@
 <script>
   import Tailwindcss from "./Tailwind.svelte";
-  import Router from "svelte-spa-router";
-  import routes from "./routes";
   import Navbar from "./components/Navbar.svelte";
   import Footer from "components/Footer.svelte";
   import AddHead from "components/AddHead.svelte";
+  import Home from "pages/Home.svelte";
 
   //  Locale
   import "./utils/i18n.js";
@@ -30,7 +29,7 @@
   <Navbar />
 
   <main class="px-2 lg:px-0">
-    <Router {routes} />
+    <Home/>
   </main>
   <Footer />
 {/if}

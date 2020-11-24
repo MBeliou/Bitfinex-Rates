@@ -42,8 +42,6 @@
     "tailwindcss": "^1.1.4"
   },
   "dependencies": {
-    "svelte-i18n": "^3.0.3",
-    "svelte-spa-chunk": "^1.0.1",
-    "svelte-spa-router": "^2.0.0"
+    "svelte-i18n": "^3.0.3"
   }
 }

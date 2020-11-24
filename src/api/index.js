@@ -16,7 +16,6 @@ class BitfinexAPI {
   }
 
   async getTickers() {
-    console.log("Getting tickers", this._makeQueryURL());
     try {
       const req = await fetch(this._makeQueryURL());
       const resp = await req.json();
@@ -27,7 +26,7 @@ class BitfinexAPI {
   }
 
   _filterTickers(tickers) {
-    return tickers.filter(ticker => ticker[0].startsWith("f"));
+    return tickers.filter(ticker => ticker[0].startsWith("f") && !ticker[0].includes("TEST"));
   }
 }
 export { BitfinexAPI };

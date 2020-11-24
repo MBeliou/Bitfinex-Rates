@@ -1,7 +1,4 @@
 <script>
-  import { link } from "svelte-spa-router";
-  import active from "svelte-spa-router/active";
-
   import { _ } from "svelte-i18n";
 </script>
 
